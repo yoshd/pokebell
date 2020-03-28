@@ -10,7 +10,7 @@ pub struct Converter {
 impl Converter {
     /// 入力された文字列を2タッチ入力の数字に変換
     /// 入力可能な文字列は (2タッチ入力)[https://ja.wikipedia.org/wiki/2%E3%82%BF%E3%83%83%E3%83%81%E5%85%A5%E5%8A%9B] , [ポケベル解読！数字の意味が分かる早見表！](https://koma-yome.com/archives/724) 参照
-    /// 
+    ///
     /// ## Example
     /// ```
     /// let c = Converter::new();
@@ -18,7 +18,7 @@ impl Converter {
     /// ```
     pub fn convert_to_two_touch_string(&self, val: String) -> Result<Vec<String>, Error> {
         if val.is_empty() {
-            return Err(Error::from(ErrorKind::ParseError))
+            return Err(Error::from(ErrorKind::ParseError));
         }
         let mut ret = Vec::new();
         if let Some(reserved) = self.reserved_word_map.get(&val) {
@@ -35,9 +35,9 @@ impl Converter {
                 Some(s) => normal += s,
                 None => {
                     if ret.is_empty() {
-                        return Err(Error::from(ErrorKind::ParseError))
+                        return Err(Error::from(ErrorKind::ParseError));
                     }
-                    return Ok(ret)
+                    return Ok(ret);
                 }
             };
         }
@@ -48,7 +48,7 @@ impl Converter {
     /// 2タッチ入力から日本語に変換する。
     /// 濁点等は別の文字になる。
     /// 例: 2104 -> か゛
-    /// 
+    ///
     /// ## Example
     /// ```
     /// let c = Converter::new();
@@ -61,7 +61,7 @@ impl Converter {
         let mut ret = String::new();
         for i in 0..(val.len() / 2) {
             let idx = i * 2;
-            match self.inversed_base_map.get(&val[idx..(idx+2)]) {
+            match self.inversed_base_map.get(&val[idx..(idx + 2)]) {
                 Some(ch) => ret.push(*ch),
                 None => return Err(Error::from(ErrorKind::ParseError)),
             };
@@ -280,24 +280,56 @@ impl Converter {
         reserved_word_map.insert("テル".to_string(), vec!["106".to_string()]);
         reserved_word_map.insert("遅れてる".to_string(), vec!["9106".to_string()]);
         reserved_word_map.insert("おくれてる".to_string(), vec!["9106".to_string()]);
-        reserved_word_map.insert("愛してる".to_string(), vec!["14106".to_string(), "114106".to_string(), "1410".to_string()]);
-        reserved_word_map.insert("あいしてる".to_string(), vec!["14106".to_string(), "114106".to_string(), "1410".to_string()]);
+        reserved_word_map.insert(
+            "愛してる".to_string(),
+            vec![
+                "14106".to_string(),
+                "114106".to_string(),
+                "1410".to_string(),
+            ],
+        );
+        reserved_word_map.insert(
+            "あいしてる".to_string(),
+            vec![
+                "14106".to_string(),
+                "114106".to_string(),
+                "1410".to_string(),
+            ],
+        );
         reserved_word_map.insert("何してる".to_string(), vec!["724106".to_string()]);
         reserved_word_map.insert("なにしてる".to_string(), vec!["724106".to_string()]);
-        reserved_word_map.insert("起きてる".to_string(), vec!["09106".to_string(), "9106".to_string()]);
-        reserved_word_map.insert("おきてる".to_string(), vec!["09106".to_string(), "9106".to_string()]);
+        reserved_word_map.insert(
+            "起きてる".to_string(),
+            vec!["09106".to_string(), "9106".to_string()],
+        );
+        reserved_word_map.insert(
+            "おきてる".to_string(),
+            vec!["09106".to_string(), "9106".to_string()],
+        );
         reserved_word_map.insert("行くよ".to_string(), vec!["194".to_string()]);
         reserved_word_map.insert("いくよ".to_string(), vec!["194".to_string()]);
         reserved_word_map.insert("池袋".to_string(), vec!["269".to_string()]);
         reserved_word_map.insert("渋谷".to_string(), vec!["428".to_string()]);
         reserved_word_map.insert("おやすみ".to_string(), vec!["833".to_string()]);
-        reserved_word_map.insert("おはよう".to_string(), vec!["840".to_string(), "0840".to_string()]);
+        reserved_word_map.insert(
+            "おはよう".to_string(),
+            vec!["840".to_string(), "0840".to_string()],
+        );
         reserved_word_map.insert("ハロー".to_string(), vec!["860".to_string()]);
         reserved_word_map.insert("はやく".to_string(), vec!["889".to_string()]);
         reserved_word_map.insert("早く".to_string(), vec!["889".to_string()]);
-        reserved_word_map.insert("サンキュー".to_string(), vec!["39".to_string(), "999".to_string()]);
-        reserved_word_map.insert("Thank you".to_string(), vec!["39".to_string(), "999".to_string()]);
-        reserved_word_map.insert("thank you".to_string(), vec!["39".to_string(), "999".to_string()]);
+        reserved_word_map.insert(
+            "サンキュー".to_string(),
+            vec!["39".to_string(), "999".to_string()],
+        );
+        reserved_word_map.insert(
+            "Thank you".to_string(),
+            vec!["39".to_string(), "999".to_string()],
+        );
+        reserved_word_map.insert(
+            "thank you".to_string(),
+            vec!["39".to_string(), "999".to_string()],
+        );
         reserved_word_map.insert("会えない".to_string(), vec!["1871".to_string()]);
         reserved_word_map.insert("あえない".to_string(), vec!["1871".to_string()]);
         reserved_word_map.insert("さよなら".to_string(), vec!["3470".to_string()]);
@@ -333,10 +365,22 @@ impl Converter {
         reserved_word_map.insert("ボウリングいこ".to_string(), vec!["015".to_string()]);
         reserved_word_map.insert("遅れる".to_string(), vec!["090".to_string()]);
         reserved_word_map.insert("おくれる".to_string(), vec!["090".to_string()]);
-        reserved_word_map.insert("ずっと一緒にいようね".to_string(), vec!["2101442147".to_string()]);
-        reserved_word_map.insert("ずっと一緒にいよーね".to_string(), vec!["21014421479".to_string()]);
-        reserved_word_map.insert("ずっといっしょにいようね".to_string(), vec!["2101442147".to_string()]);
-        reserved_word_map.insert("ずっといっしょにいよーね".to_string(), vec!["21014421479".to_string()]);
+        reserved_word_map.insert(
+            "ずっと一緒にいようね".to_string(),
+            vec!["2101442147".to_string()],
+        );
+        reserved_word_map.insert(
+            "ずっと一緒にいよーね".to_string(),
+            vec!["21014421479".to_string()],
+        );
+        reserved_word_map.insert(
+            "ずっといっしょにいようね".to_string(),
+            vec!["2101442147".to_string()],
+        );
+        reserved_word_map.insert(
+            "ずっといっしょにいよーね".to_string(),
+            vec!["21014421479".to_string()],
+        );
 
         Converter {
             base_map: base_map,
@@ -353,13 +397,11 @@ pub enum ErrorKind {
     ParseError,
 }
 
-
-
 /* ----------- failure boilerplate ----------- */
 
+use failure::{Backtrace, Context, Fail};
 use std::fmt;
 use std::fmt::Display;
-use failure::{Backtrace, Context, Fail};
 
 #[derive(Debug)]
 pub struct Error {
@@ -412,19 +454,27 @@ mod tests {
     #[test]
     fn test_convert_to_two_touch_string_normal() {
         let c = Converter::new();
-        let result = c.convert_to_two_touch_string("こんにちは".to_string()).unwrap();
+        let result = c
+            .convert_to_two_touch_string("こんにちは".to_string())
+            .unwrap();
         assert_eq!(result.len(), 1);
         assert_eq!(result[0], "2503524261");
 
-        let result = c.convert_to_two_touch_string("ごくろうさん".to_string()).unwrap();
+        let result = c
+            .convert_to_two_touch_string("ごくろうさん".to_string())
+            .unwrap();
         let expected = vec!["5963".to_string(), "25042395133103".to_string()];
         assert_eq!(result, expected);
 
-        let result = c.convert_to_two_touch_string("ご苦労さん".to_string()).unwrap();
-        let expected = vec!["5963".to_string(),];
+        let result = c
+            .convert_to_two_touch_string("ご苦労さん".to_string())
+            .unwrap();
+        let expected = vec!["5963".to_string()];
         assert_eq!(result, expected);
 
-        let result = c.convert_to_two_touch_string("だA*（￥ぽＧ".to_string()).unwrap();
+        let result = c
+            .convert_to_two_touch_string("だA*（￥ぽＧ".to_string())
+            .unwrap();
         let expected = vec!["410416868276650527".to_string()];
         assert_eq!(result, expected);
     }
@@ -441,11 +491,17 @@ mod tests {
     #[test]
     fn test_convert_from_two_touch_string_normal() {
         let c = Converter::new();
-        let result = c.convert_from_two_touch_string("48564940".to_string()).unwrap();
+        let result = c
+            .convert_from_two_touch_string("48564940".to_string())
+            .unwrap();
         assert_eq!(result, "RUST");
-        let result = c.convert_from_two_touch_string("81225223".to_string()).unwrap();
+        let result = c
+            .convert_from_two_touch_string("81225223".to_string())
+            .unwrap();
         assert_eq!(result, "やきにく");
-        let result = c.convert_from_two_touch_string("250459868884".to_string()).unwrap();
+        let result = c
+            .convert_from_two_touch_string("250459868884".to_string())
+            .unwrap();
         assert_eq!(result, "こ゛X* )");
     }
 
