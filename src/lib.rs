@@ -2,6 +2,8 @@
 //!
 //! 機種依存の入力方法はサポートしません。
 
-#[macro_use] extern crate failure;
+#[macro_use]
+extern crate failure;
 
+pub mod c_interface;
 pub mod two_touch_input;
