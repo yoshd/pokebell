@@ -26,7 +26,10 @@ impl Converter {
         }
         let chars = val.chars();
         let mut normal = String::new();
-        for ch in chars {
+        for mut ch in chars {
+            if ch.is_ascii_alphabetic() {
+                ch = ch.to_ascii_uppercase();
+            }
             let ch = self.normalize(&ch);
             match self.base_map.get(&ch) {
                 Some(s) => normal += s,
