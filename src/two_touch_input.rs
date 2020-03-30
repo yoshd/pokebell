@@ -9,7 +9,7 @@ pub struct Converter {
 
 impl Converter {
     /// 入力された文字列を2タッチ入力の数字に変換
-    /// 入力可能な文字列は (2タッチ入力)[https://ja.wikipedia.org/wiki/2%E3%82%BF%E3%83%83%E3%83%81%E5%85%A5%E5%8A%9B] , [ポケベル解読！数字の意味が分かる早見表！](https://koma-yome.com/archives/724) 参照
+    /// 入力可能な文字列は [2タッチ入力](https://ja.wikipedia.org/wiki/2%E3%82%BF%E3%83%83%E3%83%81%E5%85%A5%E5%8A%9B) , [ポケベル解読！数字の意味が分かる早見表！](https://koma-yome.com/archives/724) 参照
     ///
     /// ## Example
     /// ```
