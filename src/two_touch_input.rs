@@ -349,6 +349,8 @@ impl Converter {
         reserved_word_map.insert("よこはま".to_string(), vec!["4580".to_string()]);
         reserved_word_map.insert("よろしく".to_string(), vec!["4649".to_string()]);
         reserved_word_map.insert("ファイト".to_string(), vec!["5110".to_string()]);
+        reserved_word_map.insert("お仕事ファイト".to_string(), vec!["045105110".to_string()]);
+        reserved_word_map.insert("おしごとふぁいと".to_string(), vec!["045105110".to_string()]);
         reserved_word_map.insert("ふぁいと".to_string(), vec!["5110".to_string()]);
         reserved_word_map.insert("ご苦労さん".to_string(), vec!["5963".to_string()]);
         reserved_word_map.insert("ごくろうさん".to_string(), vec!["5963".to_string()]);
