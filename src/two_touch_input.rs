@@ -267,14 +267,20 @@ impl Converter {
         normalization_map.insert('８', '8');
         normalization_map.insert('９', '9');
         normalization_map.insert('０', '0');
+        normalization_map.insert('ー', '-');
 
         // see https://koma-yome.com/archives/724
         let mut reserved_word_map = HashMap::new();
         reserved_word_map.insert("今".to_string(), vec!["10".to_string()]);
+        reserved_word_map.insert("いま".to_string(), vec!["10".to_string()]);
         reserved_word_map.insert("海".to_string(), vec!["41".to_string()]);
+        reserved_word_map.insert("うみ".to_string(), vec!["41".to_string()]);
         reserved_word_map.insert("シー".to_string(), vec!["41".to_string()]);
+        reserved_word_map.insert("しー".to_string(), vec!["41".to_string()]);
         reserved_word_map.insert("至急".to_string(), vec!["49".to_string()]);
+        reserved_word_map.insert("しきゅう".to_string(), vec!["49".to_string()]);
         reserved_word_map.insert("待ってる".to_string(), vec!["106".to_string()]);
+        reserved_word_map.insert("まってる".to_string(), vec!["106".to_string()]);
         reserved_word_map.insert("TEL".to_string(), vec!["106".to_string()]);
         reserved_word_map.insert("ＴＥＬ".to_string(), vec!["106".to_string()]);
         reserved_word_map.insert("テル".to_string(), vec!["106".to_string()]);
@@ -309,7 +315,9 @@ impl Converter {
         reserved_word_map.insert("行くよ".to_string(), vec!["194".to_string()]);
         reserved_word_map.insert("いくよ".to_string(), vec!["194".to_string()]);
         reserved_word_map.insert("池袋".to_string(), vec!["269".to_string()]);
+        reserved_word_map.insert("いけぶくろ".to_string(), vec!["269".to_string()]);
         reserved_word_map.insert("渋谷".to_string(), vec!["428".to_string()]);
+        reserved_word_map.insert("しぶや".to_string(), vec!["428".to_string()]);
         reserved_word_map.insert("おやすみ".to_string(), vec!["833".to_string()]);
         reserved_word_map.insert(
             "おはよう".to_string(),
@@ -338,12 +346,16 @@ impl Converter {
         reserved_word_map.insert("仕事".to_string(), vec!["4510".to_string()]);
         reserved_word_map.insert("しごと".to_string(), vec!["4510".to_string()]);
         reserved_word_map.insert("横浜".to_string(), vec!["4580".to_string()]);
+        reserved_word_map.insert("よこはま".to_string(), vec!["4580".to_string()]);
         reserved_word_map.insert("よろしく".to_string(), vec!["4649".to_string()]);
         reserved_word_map.insert("ファイト".to_string(), vec!["5110".to_string()]);
+        reserved_word_map.insert("ふぁいと".to_string(), vec!["5110".to_string()]);
         reserved_word_map.insert("ご苦労さん".to_string(), vec!["5963".to_string()]);
         reserved_word_map.insert("ごくろうさん".to_string(), vec!["5963".to_string()]);
         reserved_word_map.insert("バイト".to_string(), vec!["8110".to_string()]);
+        reserved_word_map.insert("ばいと".to_string(), vec!["8110".to_string()]);
         reserved_word_map.insert("バイバイ".to_string(), vec!["8181".to_string()]);
+        reserved_word_map.insert("ばいばい".to_string(), vec!["8181".to_string()]);
         reserved_word_map.insert("今どこ".to_string(), vec!["10105".to_string()]);
         reserved_word_map.insert("いまどこ".to_string(), vec!["10105".to_string()]);
         reserved_word_map.insert("会いたいよ".to_string(), vec!["110149".to_string()]);
@@ -353,6 +365,7 @@ impl Converter {
         reserved_word_map.insert("寂しいよ".to_string(), vec!["33414".to_string()]);
         reserved_word_map.insert("さびしいよ".to_string(), vec!["33414".to_string()]);
         reserved_word_map.insert("デートしよ".to_string(), vec!["101044".to_string()]);
+        reserved_word_map.insert("でーとしよ".to_string(), vec!["101044".to_string()]);
         reserved_word_map.insert("TEL欲しい".to_string(), vec!["106841".to_string()]);
         reserved_word_map.insert("TELほしい".to_string(), vec!["106841".to_string()]);
         reserved_word_map.insert("ごめんなさい".to_string(), vec!["500731".to_string()]);
