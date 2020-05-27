@@ -200,7 +200,7 @@ impl Converter {
         base_map.insert('ぼ', "6504".to_string());
 
         base_map.insert('ぱ', "6105".to_string());
-        base_map.insert('ぽ', "6205".to_string());
+        base_map.insert('ぴ', "6205".to_string());
         base_map.insert('ぷ', "6305".to_string());
         base_map.insert('ぺ', "6405".to_string());
         base_map.insert('ぽ', "6505".to_string());
