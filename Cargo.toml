@@ -1,7 +1,7 @@
 [package]
 name = "pokebell"
 description = "Pocket bell (Pager) 2 touch input mutual conversion library"
-keywords = ["pokebell","pocket bell","pager", "two touch input"]
+keywords = ["pokebell","pocketbell","pager"]
 readme = "README.md"
 license = "Apache-2.0"
 repository = "https://github.com/yoshd/pokebell"
