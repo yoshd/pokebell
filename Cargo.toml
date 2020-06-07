@@ -1,7 +1,14 @@
 [package]
 name = "pokebell"
+description = "Pocket bell (Pager) 2 touch input mutual conversion library"
+keywords = ["pokebell","pocket bell","pager", "two touch input"]
+readme = "README.md"
+license = "Apache-2.0"
+repository = "https://github.com/yoshd/pokebell"
+documentation = "https://docs.rs/pokebell/"
+categories = ["simulation"]
 version = "0.1.0"
-authors = ["yosh <garlic.ba.0129@gmail.com>"]
+authors = ["yoshd <garlic.ba.0129@gmail.com>"]
 edition = "2018"
 
 [lib]
